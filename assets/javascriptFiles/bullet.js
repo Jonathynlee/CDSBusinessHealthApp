@@ -1,3 +1,5 @@
+
+
 (function() {
 
     // Chart design based on the recommendations of Stephen Few. Implementation

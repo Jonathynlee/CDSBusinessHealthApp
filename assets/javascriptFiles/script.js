@@ -9,7 +9,7 @@ var gauge1 = loadLiquidFillGauge("fillgauge1", 50);
     config1.waveAnimateTime = 1000;
 
 
-    /*
+    
     function NewValue(){
         if(Math.random() > .5){
             return Math.round(Math.random()*100);
@@ -17,7 +17,7 @@ var gauge1 = loadLiquidFillGauge("fillgauge1", 50);
             return (Math.random()*100).toFixed(1);
         }
     }
-    */
+    
 
 
 
