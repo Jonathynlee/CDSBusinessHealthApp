@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/CodeFlask.js/0.1.1/codeflask.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js" async></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/CodeFlask.js/0.1.1/codeflask.min.js" async></script>
+	
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" axync></script>
+    <title>Document</title>
+</head>
+<body>
+    <p id="un-authenticated-msg" style="display:none;">
+        You are currently not logged in, please click the button below to log in!
+        <br>
+        <button type="button" onclick="authorize()">Log in</button>
+      </p>
+  
+      <p id="authenticated-msg" style="display:none;">
+        Your access token is: 
+      </p>
+      <p id="make-call-msg" style="display:none;">
+        Please try making an api call by clicking the button below!
+      </p>
+      <br>
+  
+      Response:
+      <div id="response" style="height:400px;">
+        <pre><code id="response-code" class="language-json"></code></pre>
+      </div>
+      <br>
+      <button type="button" onclick="testCall()" id="api-call" disabled>Make API Call</button>
+
+<script src = "callTestScript.js"></script>
+</body>
+</html>
