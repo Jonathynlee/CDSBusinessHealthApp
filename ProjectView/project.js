@@ -34,7 +34,7 @@
    /* project={
         name: "test",
         description: "test"
-    }
+    }*/
     
    /* function getToken(){
         var OAuth = require('@zalando/oauth2-client-js');
@@ -59,13 +59,22 @@
         // Do the redirect
         window.location.href = uri;
     }*/
-    /*var accountNo="4314725";
+  /*  var accountNo="4314725";
     var accountNo2="4314062";
     
-    var code="7477ce01";
+    var code="aab16437";
     var queryURL="https://3.basecampapi.com/";
+
+    /*let client = new JSO({
+        providerID: "basecamp",
+        client_id: "a42f32e6cda42c9a82e3b96a2f495c78a441ca1c",
+        client_secret: "e448bd9a18a49a182e29eb70008e342090e2de14",
+        redirect_uri: "https://github.com/Jonathynlee/CDSBusinessHealthApp", // The URL where you is redirected back, and where you perform run the callback() function.
+        authorization: "https://launchpad.37signals.com/authorization",
+        scopes: { request: ["https://www.googleapis.com/auth/userinfo.profile"]}
+    })*/
     
-    jQuery.ajaxPrefilter(function(options) {
+   /* jQuery.ajaxPrefilter(function(options) {
         if (options.crossDomain && jQuery.support.cors) {
             options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
         }
