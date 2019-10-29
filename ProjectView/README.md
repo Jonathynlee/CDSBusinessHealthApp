@@ -5,13 +5,13 @@ This program lists projects with options to access the people working on the pro
 
 ## ScreenShots: ##
 
-  ![ProjectView](./assets/layouts/ProjectView.png)
+  ![ProjectView](../assets/layouts/ProjectView.png)
 --
 
-  ![TaskView](./assets/layouts/TaskView.png)
+  ![TaskView](../assets/layouts/TaskView.png)
 
 --
- ![MemberView](./assets/layouts/MemberView.png)
+ ![MemberView](../assets/layouts/MemberView.png)
 
 ## Functionality ##
 
