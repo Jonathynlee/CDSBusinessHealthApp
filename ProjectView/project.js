@@ -226,7 +226,8 @@ Project1={
     endTime:"03/05/2012",
     tasks:[task1,task2,task3],
     status:"overdue", //onschedule, behind, overdue
-    priority: "medium" //medium, low. high
+    priority: "medium", //medium, low. high
+    pinned:false
 }
 
 task3={
@@ -259,7 +260,8 @@ Project2={
     endTime:"03/05/2020",
     tasks:[task3,task4],
     status:"on schedule", //onschedule, behind, overdue
-    priority: "high" //medium, low. high
+    priority: "high" ,//medium, low. high
+    pinned:true
 }
 
 
@@ -281,7 +283,8 @@ Project3={
     endTime:"03/05/2019",
     tasks:[task5],
     status:"falling behind", //onschedule, behind, overdue
-    priority: "low" //medium, low. high
+    priority: "low", //medium, low. high
+    pinned:false
 }
 Projects=[Project1,Project2,Project3];
 ///VIEW MEMBER INFO OF A PROJECT//////////
@@ -439,6 +442,60 @@ function viewProjects(){
 
     }
 }
+///////////////////////VIEW PINNED PROJECTS/////////////////////////////
+function pinnedProjects(){
+    for (var i=0;i<Projects.length;i++){
+      if (Projects[i].pinned){  
+        $("#pinP").removeClass("d-none");
+
+        var row=$("<tr>");
+        var index= $("<th scope='row'>"+Projects[i].id+"</th>");
+        row.append(index);
+
+        var button=$("<button class='btn btn-info btn-block' data-toggle='modal' data-target='' onclick='' id='pinButton"+i+"'>"+Projects[i].name+"</button>");
+        var data1=$("<td>");
+        data1.append(button);
+        $(row).append(data1);
+    
+     ///////////////////////////////////////////////
+        if (Projects[i].status=="on schedule"){
+            button=$("<button class='btn btn-success btn-block' id='spinButton"+i+"'>"+Projects[i].status+"</button>");
+        }
+        else if(Projects[i].status=="falling behind"){
+             button=$("<button class='btn btn-warning btn-block' id='spinButton"+i+"'>"+Projects[i].status+"</button>");
+        }
+        else if(Projects[i].status=="overdue"){
+             button=$("<button class='btn btn-danger btn-block' id='spinButton"+i+"'>"+Projects[i].status+"</button>");
+        }
+        data1=$("<td>");
+        data1.append(button);
+        $(row).append(data1);
+    ///////////////////////////////////////////////
+        if (Projects[i].priority=="low"){
+          button=$("<button class='btn btn-success btn-block' id='ppButton"+i+"'>"+Projects[i].priority+"</button>");
+        }
+        else if(Projects[i].priority=="medium"){
+          button=$("<button class='btn btn-warning btn-block' id='ppButton"+i+"'>"+Projects[i].priority+"</button>");
+        }
+        else if(Projects[i].priority=="high"){
+          button=$("<button class='btn btn-danger btn-block' id='ppButton"+i+"'>"+Projects[i].priority+"</button>");
+        }
+        data1=$("<td>");
+        data1.append(button);
+        $(row).append(data1);
+   ///////////////////////////////////////////////
+
+        $("#pinBody").append(row);
+        
+     
+    }
+   
+
+  }
+}
+///////////////////////////////////////////////////////////////////////
 
 viewProjects();
 getAllPeopleOnProject();
+
+pinnedProjects();
