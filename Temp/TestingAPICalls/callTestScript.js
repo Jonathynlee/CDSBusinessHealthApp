@@ -13,7 +13,7 @@ redirectURI = window.location;
 var token = "6092f592";
 var queryURL="https://3.basecampapi.com/";
 function authorize() {
-    window.location = "https://launchpad.37signals.com/authorization/new?type=web_server&client_id="+clientID+"&redirect_uri="+redirectURI;
+    //window.location = "https://launchpad.37signals.com/authorization/new?type=web_server&client_id="+clientID+"&redirect_uri="+redirectURI;
     $.ajax({
         url:"https://launchpad.37signals.com/authorization/token?type=web_server&client_id="+clientID+"&redirect_uri="+redirectURI+"&client_secret="+clientSecret+"&code="+token,
         success:function(response){
