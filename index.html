@@ -15,7 +15,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">CDN Business Health</a>
+  <a class="navbar-brand" href="#">CDS Business Health</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -23,7 +23,7 @@
         <a class="nav-link" href="#">Main Dashboard <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="#">Project Overviews <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="ProjectView/index.html">Project Overviews <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="#">Calender<span class="sr-only">(current)</span></a>
@@ -40,12 +40,12 @@
             
         <div class="row">
             
-            <div class="col-sm-9">
+            <div class="col-sm-9 allCol">
                 
                 
                  <div class="container">
                  <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 allCol">
                         <div class="card">
                                 <div class="card-body">
                                       <svg id="fillgauge1" width="97%" height="250" onclick="gauge1.update(NewValue());"></svg>
@@ -53,7 +53,7 @@
                               </div>
                             </div>
 
-                        <div class="col-sm-9">
+                        <div class="col-sm-9 allCol">
                         <div class="card">
                                 <div class="card-body">
                                  
@@ -67,7 +67,7 @@
                  
 
                  <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 allCol">
                         <div class="card">
                                 <div class="card-body">
                                   Pending Payments
@@ -75,7 +75,7 @@
                               </div>
                             </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 allCol">
                         <div class="card">
                                 <div class="card-body">
                                   TBD
@@ -85,7 +85,7 @@
                  </div>
 
                  <div class="row">
-                        <div class="col-sm">
+                        <div class="col-sm allCol">
                         <div class="card">
                                 <div class="card-body">
                                         <img src="assets/pngFiles/BottomGraph.png" class="bullet-png" alt ="bullet-graph"/>
@@ -100,18 +100,13 @@
 
         
 
-            <div class="col-sm-3">
+            <div class="col-sm-3 allCol rightCol">
                 <div class="card rCol">
                     <div class="card-body threeRows">
                             <div class="row">
                             <img src="assets/pngFiles/rightCol.png" class="rColPng" alt ="rightCol"/>
                             </div>
-                            <div class="row">
-                                    <img src="assets/pngFiles/rightCol.png" class="rColPng" alt ="rightCol"/>
-                            </div>
-                            <div class="row">
-                                    <img src="assets/pngFiles/rightCol.png" class="rColPng" alt ="rightCol"/>
-                            </div>
+                           
                     </div>
                   </div>
             </div>
@@ -127,7 +122,7 @@
 
 
 
-
+<!--<button>Update</button>-->
 
 
         
@@ -138,7 +133,7 @@
 
         <script src="https://d3js.org/d3.v5.js"></script>
         <script src="https://d3js.org/d3.v3.min.js" language="JavaScript"></script>
-        <!--<script src="assets/javascriptFiles/bullet.js"></script>-->
+        <script src="assets/javascriptFiles/bullet.js"></script>
         <script src="assets/javascriptFiles/liquidFillGauge.js" language="JavaScript"></script>
         <script src="assets/javascriptFiles/script.js"></script>
 </body>
