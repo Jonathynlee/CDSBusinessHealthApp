@@ -1,0 +1,44 @@
+h1{
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    overflow: hidden;
+    margin:0px;
+    padding:0px;
+    background-color: #e0e0e0;
+}
+.headerRow{
+    height:auto;
+    margin-bottom:20px;
+}
+.headerCol{
+
+}
+
+.contentRow{
+margin-top:0px;
+padding:0px 20px;
+}
+.contentCol{
+height:200px;
+border: 2px solid rgb(218, 218, 218);
+box-shadow: 2px 2px 5px rgb(201, 200, 200);
+margin:5px;
+padding: 10px;
+background-color:white;
+}
+.bootCol{
+    padding:5px;
+}
+.footer{
+    background-color: rgb(79, 80, 90);
+    height:100px;
+    width:100%;
+    position:fixed;
+    bottom:0px;
+    margin:0px;
+    padding:0px;
+    left:0;
+    
+}
