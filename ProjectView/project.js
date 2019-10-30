@@ -1,5 +1,7 @@
 
 APIProjects=[];
+var usefulArray=[];
+ 
 statusAPI=["on schedule","falling behind","overdue"];
 priority=["high","medium","low"];
 console.log("test")
@@ -36,6 +38,9 @@ function getCode() {
     code = getUrlParameter('code');
     console.log(code)
 }
+///////////////////////
+
+//////////////////////
 function getToken() {
     $.ajax({
         type: "POST",
@@ -46,6 +51,9 @@ function getToken() {
             console.log(token)
             //createProject();
             getAllProjects();
+            
+            
+
         }
     })
 }
@@ -84,6 +92,54 @@ function getToken() {
 
  //}*/
  /////////////////////////////////////////////////////////////////////
+ //var usefulArray=[];
+ 
+ function getToDoSets(){
+     
+     for (var i=0;i<APIProjects.length;i++){//APIProjects.length;
+         var u=APIProjects[i].url;
+         //console.log(u);
+         $.ajax({
+            contentType: 'application/json;charset=utf-8',
+    
+            //processData:false, 
+    
+            type: "GET",
+            headers: {
+                "Authorization": "Bearer " + token
+            },
+            url:u,
+            datatype: 'json',
+    
+            error: function (request, textStatus, errorThrown) {
+                alert(errorThrown);
+    
+            },
+            success: function (response) {
+                r=JSON.stringify(response);
+                //console.log(r);
+               
+                toDoSets=JSON.parse(r);
+                var id=toDoSets.id
+                var completed=toDoSets.completed;
+                var ratio=toDoSets.completed_ratio;
+                var listCount=toDoSets.todolists_count;
+
+                var entry={
+                    id:id,
+                    completed:completed,
+                    ratio:ratio,
+                    listCount:listCount
+                }
+                usefulArray.push(entry);
+    
+                
+             }    
+           });
+        } 
+        
+ }
+ /////////////////////////////////////////////////////////////////////
  function getAllProjects() {
 
     $.ajax({
@@ -110,22 +166,23 @@ function getToken() {
               div.html("Project "+i +": "+ currentName);
               $("body").append(div);*/
             //}
-            console.log(response);
-            console.log(response.length);
+            //console.log(response);
+            //console.log(response.length);
            
             for (var i=0;i<response.length;i++){
                 projectAPI=new Object();
                 projectAPI.ID=response[i].id;
                 projectAPI.name=response[i].name;
-                projectAPI.url=response[i].url;
+                projectAPI.url=response[i].dock[2].url;
                 projectAPI.status=statusAPI[randomNumberGenerator()];
                 projectAPI.priority=priority[randomNumberGenerator()];
                 projectAPI.pinned=false;
                 APIProjects.push(projectAPI);
                
             }
-            console.log(APIProjects);
+            //console.log(APIProjects);
             viewProjects();
+            getToDoSets();
 
         }
     });
@@ -397,7 +454,7 @@ $('#myModal2').on('show', function () {
     });
 });
 //////////When Project Button is Clicked the asignees and number of tasks that are open will be listed.////////
-function viewTasks(index) {
+function viewTasks(index) { //index
 
  /*   var project = membersofProjects[index];
     $("#tbody").empty();
@@ -422,8 +479,30 @@ function viewTasks(index) {
         $("#tbody").append(row);
 
     }*/
+       var project = usefulArray[index];
+       $("#tbody").empty();
+    
+        var id = project.id;
+        var completed= project.completed;
+        var ratio=project.ratio;
+        var listCount=project.listCount;
 
+        var row = $("<tr>");
+        var index = $("<th scope='row'>" + id+ "</th>");
+        row.append(index);
+        var data1 = $("<td>");
+        data1.append("<span>" + completed + "</span>");
+        $(row).append(data1);
 
+        data1 = $("<td>");
+        data1.append("<span>" + ratio+ "</span>");
+        $(row).append(data1);
+
+        data1 = $("<td>");
+        data1.append("<span>" + listCount+ "</span>");
+        $(row).append(data1);
+
+        $("#tbody").append(row);
 
 }
 ////////////////////////////////////////////////////////////////
