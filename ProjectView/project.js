@@ -1,4 +1,5 @@
 
+APIProjects=[];
 console.log("test")
 var accountID = "3736340";
 var clientID="f83106024123731e9dd7114e6a6361bd81ba241f";
@@ -41,13 +42,47 @@ function getToken() {
             console.log(response)
             token = response.access_token;
             console.log(token)
-            createProject();
+            //createProject();
+            getAllProjects();
         }
     })
 }
 
 
-function createProject() {
+/*function createProject() {
+
+    $.ajax({
+        contentType: 'application/json;charset=utf-8',
+
+        //processData:false, 
+
+        type: "GET",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+        url: queryURL + accountID + "/projects.json",
+        datatype: 'json',
+
+        error: function (request, textStatus, errorThrown) {
+            alert(errorThrown);
+
+        },
+        success: function (response) {
+            //for(var i=0;i< response.length;i++){
+            /*  var div = $("<div>");
+              var currentData = response[i];
+              currentName = currentData.name;
+              div.html("Project "+i +": "+ currentName);
+              $("body").append(div);*/
+            //}
+           // console.log(response);
+          //  console.log(response.length);
+       // }
+  //  });
+
+ //}*/
+ /////////////////////////////////////////////////////////////////////
+ function getAllProjects() {
 
     $.ajax({
         contentType: 'application/json;charset=utf-8',
@@ -75,10 +110,20 @@ function createProject() {
             //}
             console.log(response);
             console.log(response.length);
+
+            for (var i=0;i<response.length;i++){
+                projectAPI=new Object();
+                projectAPI.ID=response.id;
+                projectAPI.name=response.name;
+                projectAPI.url=response.url;
+
+                console.log(projectAPI);
+            }
         }
     });
 
-}
+ }
+ ////////////////////////////////////////////////////////////////////
 getCode();
 
 if (!code) {
@@ -88,7 +133,7 @@ if (!code) {
     getToken();
 }
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////
 member = {
     id: "",
     name: "",
@@ -426,7 +471,7 @@ function viewProjects() {
     }
 }
 
-//viewProjects();
-//getAllPeopleOnProject();
+viewProjects();
+getAllPeopleOnProject();
 
 
