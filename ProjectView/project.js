@@ -1,8 +1,10 @@
 
 console.log("test")
 var accountID = "3736340";
-var clientID = "6016c6aa882dfbed2b5349ef0cc816220eaf02c6";
-var clientSecret = "b8e579f7c6bdc759b3016264dfcad65e1ae23ddb";
+var clientID="f83106024123731e9dd7114e6a6361bd81ba241f";
+var clentSecret="0a18b9b736b153a492513183f1992346f094b8c7";
+//var clientID = "6016c6aa882dfbed2b5349ef0cc816220eaf02c6";
+//var clientSecret = "b8e579f7c6bdc759b3016264dfcad65e1ae23ddb";
 // var redirectURI = "http://127.0.0.1:5500/callTest.html";
 var redirectURI = "https://jonathynlee.github.io/CDSBusinessHealthApp/ProjectView/index.html";
 var token;
