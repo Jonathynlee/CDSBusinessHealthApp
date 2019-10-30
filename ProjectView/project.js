@@ -1,5 +1,7 @@
 
 APIProjects=[];
+statusAPI=["on schedule","falling behind","overdue"];
+priority=["high","medium","low"];
 console.log("test")
 var accountID = "3736340";
 var clientID="f83106024123731e9dd7114e6a6361bd81ba241f";
@@ -110,15 +112,21 @@ function getToken() {
             //}
             console.log(response);
             console.log(response.length);
-
+           
             for (var i=0;i<response.length;i++){
                 projectAPI=new Object();
-                projectAPI.ID=response.id;
-                projectAPI.name=response.name;
-                projectAPI.url=response.url;
-
-                console.log(projectAPI);
+                projectAPI.ID=response[i].id;
+                projectAPI.name=response[i].name;
+                projectAPI.url=response[i].url;
+                projectAPI.status=statusAPI[randomNumberGenerator()];
+                projectAPI.priority=priority[randomNumberGenerator()];
+                projectAPI.pinned=false;
+                APIProjects.push(projectAPI);
+               
             }
+            console.log(APIProjects);
+            viewProjects();
+
         }
     });
 
@@ -134,6 +142,10 @@ if (!code) {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
+function randomNumberGenerator(){
+    return Math.floor(Math.random()*3);
+}
+/////////////
 member = {
     id: "",
     name: "",
@@ -317,7 +329,7 @@ Project3 = {
 Projects = [Project1, Project2, Project3];
 ///VIEW MEMBER INFO OF A PROJECT//////////
 function viewMember(index) {
-    var project = membersofProjects[index];
+ /*   var project = membersofProjects[index];
     $("#mbody").empty();
     for (var j = 0; j < project.member.length; j++) {
         var memberID = project.member[j].id;
@@ -363,7 +375,7 @@ function viewMember(index) {
 
         $("#mbody").append(row);
 
-    }
+    }*/
 }
 ////FIND Employee with Employee id////////////////////////////
 function findMember(mID) {
@@ -387,7 +399,7 @@ $('#myModal2').on('show', function () {
 //////////When Project Button is Clicked the asignees and number of tasks that are open will be listed.////////
 function viewTasks(index) {
 
-    var project = membersofProjects[index];
+ /*   var project = membersofProjects[index];
     $("#tbody").empty();
     for (var j = 0; j < project.member.length; j++) {
         var numTask = project.member[j].count;
@@ -409,7 +421,7 @@ function viewTasks(index) {
         $(row).append(data1);
         $("#tbody").append(row);
 
-    }
+    }*/
 
 
 
@@ -418,14 +430,14 @@ function viewTasks(index) {
 //VIEW PROJECTS,THEIR STATUS AND PRIORITY
 function viewProjects() {
 
-    for (var i = 0; i < Projects.length; i++) {
+    for (var i = 0; i < APIProjects.length; i++) {
 
         var row = $("<tr>");
-        var index = $("<th scope='row'>" + Projects[i].id + "</th>");
+        var index = $("<th scope='row'>" + APIProjects[i].ID + "</th>");
         row.append(index);
         var str = "viewTasks(" + i + ")";
 
-        var button = $("<button class='btn btn-info btn-block' data-toggle='modal' data-target='#myModal' onclick='" + str + "'" + "id='titleButton" + i + "'>" + Projects[i].name + "</button>");
+        var button = $("<button class='btn btn-info btn-block' data-toggle='modal' data-target='#myModal' onclick='" + str + "'" + "id='titleButton" + i + "'>" + APIProjects[i].name + "</button>");
         var data1 = $("<td>");
         data1.append(button);
         $(row).append(data1);
@@ -436,27 +448,27 @@ function viewProjects() {
         data1.append(button);
         $(row).append(data1);
         ///////////////////////////////////////////////
-        if (Projects[i].status == "on schedule") {
-            button = $("<button class='btn btn-success btn-block' id='statusButton" + i + "'>" + Projects[i].status + "</button>");
+        if (APIProjects[i].status == "on schedule") {
+            button = $("<button class='btn btn-success btn-block' id='statusButton" + i + "'>" + APIProjects[i].status + "</button>");
         }
-        else if (Projects[i].status == "falling behind") {
-            button = $("<button class='btn btn-warning btn-block' id='statusButton" + i + "'>" + Projects[i].status + "</button>");
+        else if (APIProjects[i].status == "falling behind") {
+            button = $("<button class='btn btn-warning btn-block' id='statusButton" + i + "'>" + APIProjects[i].status + "</button>");
         }
-        else if (Projects[i].status == "overdue") {
-            button = $("<button class='btn btn-danger btn-block' id='statusButton" + i + "'>" + Projects[i].status + "</button>");
+        else if (APIProjects[i].status == "overdue") {
+            button = $("<button class='btn btn-danger btn-block' id='statusButton" + i + "'>" + APIProjects[i].status + "</button>");
         }
         data1 = $("<td>");
         data1.append(button);
         $(row).append(data1);
         ///////////////////////////////////////////////
-        if (Projects[i].priority == "low") {
-            button = $("<button class='btn btn-success btn-block' id='priorityButton" + i + "'>" + Projects[i].priority + "</button>");
+        if (APIProjects[i].priority == "low") {
+            button = $("<button class='btn btn-success btn-block' id='priorityButton" + i + "'>" + APIProjects[i].priority + "</button>");
         }
-        else if (Projects[i].priority == "medium") {
-            button = $("<button class='btn btn-warning btn-block' id='priorityButton" + i + "'>" + Projects[i].priority + "</button>");
+        else if (APIProjects[i].priority == "medium") {
+            button = $("<button class='btn btn-warning btn-block' id='priorityButton" + i + "'>" + APIProjects[i].priority + "</button>");
         }
-        else if (Projects[i].priority == "high") {
-            button = $("<button class='btn btn-danger btn-block' id='priorityButton" + i + "'>" + Projects[i].priority + "</button>");
+        else if (APIProjects[i].priority == "high") {
+            button = $("<button class='btn btn-danger btn-block' id='priorityButton" + i + "'>" + APIProjects[i].priority + "</button>");
         }
         data1 = $("<td>");
         data1.append(button);
@@ -471,7 +483,7 @@ function viewProjects() {
     }
 }
 
-viewProjects();
-getAllPeopleOnProject();
+//viewProjects();
+//getAllPeopleOnProject();
 
 
