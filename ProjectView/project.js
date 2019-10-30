@@ -35,9 +35,6 @@ function getCode() {
 }
 function getToken() {
     $.ajax({
-       /* headers: {
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36"
-        },*/
         type: "POST",
         url: "https://launchpad.37signals.com/authorization/token?type=web_server&client_id=" + clientID + "&redirect_uri=" + redirectURI + "&client_secret=" + clientSecret + "&code=" + code,
         success: function (response) {
