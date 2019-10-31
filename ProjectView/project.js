@@ -13,6 +13,7 @@ var clientSecret="0a18b9b736b153a492513183f1992346f094b8c7";
 
 var redirectURI = "https://jonathynlee.github.io/CDSBusinessHealthApp/ProjectView/index.html";
 var token;
+
 var queryURL = "https://3.basecampapi.com/";
 var code;
 
@@ -50,6 +51,7 @@ function getToken() {
         success: function (response) {
             //console.log(response)
             token = response.access_token;
+            localStorage.setItem("token",token);
            // console.log(token)
             //createProject();
             getAllProjects();
@@ -201,15 +203,20 @@ function getToken() {
 
  }
  ////////////////////////////////////////////////////////////////////
-getCode();
-
-if (!code) {
-    authorize();
-} else {
-    
-    getToken();
-}
-
+ var localToken = JSON.stringify(localStorage.token);
+ if (localToken != "null"){ 
+ 
+     token = localToken;
+     getAllProjects();
+     }else{
+ getCode();
+ if (!code) {
+     //authorize();
+ } else {
+     
+     //getToken();
+ }
+ }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 function randomNumberGenerator(){
     return Math.floor(Math.random()*3);
