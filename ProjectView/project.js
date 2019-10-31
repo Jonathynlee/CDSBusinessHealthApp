@@ -321,9 +321,9 @@ function viewProjects() {
             var pinned = false;
         }
         if (pinned){
-            var pinImage = "assets/images/pin.png";
+            var pinImage = "../assets/images/pin.png";
         }else{
-            var pinImage = "assets/images/unpin.png";
+            var pinImage = "../assets/images/unpin.png";
         }
         var pinButton = $("<button class = \"pinButton\" pinned = \""+pinned+"\" style = \"background-image:url(\""+pinImage+"\");\"></button>")
         index.append(pinButton);
