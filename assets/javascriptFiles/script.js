@@ -151,6 +151,7 @@ var gauge1 = loadLiquidFillGauge("fillgauge1", 50);
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+      /*
 
       var margin = {top: 5, right: 40, bottom: 20, left: 120},
       width = 960 - margin.left - margin.right,
@@ -206,3 +207,43 @@ var gauge1 = loadLiquidFillGauge("fillgauge1", 50);
     };
   }
   
+*/
+
+
+  //BOTTOMGRAPH     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  const mainChart = document.getElementById("lineChart");
+
+  console.log(mainChart);
+
+  let lineChart = new Chart(mainChart, {
+    type: 'line',
+    data: {
+      labels:["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      datasets: [
+        {
+          Label: "CDS Data Set",
+          fill: true,
+          lineTension: 0.1,
+          backgroundColor: "rgba(75,192,192,0.3)",
+          borderColor: "rgba(75,192,192,0.3)",
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pontBorderColor: "rgba(75,192,192,1)",
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "rgba(75,192,192,1)",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          //ADD DATA HERE
+          data: [20, 25, 45, 35, 40, 55, 43, 52, 38, 50, 48, 57]
+        }
+      ]
+    }
+  });

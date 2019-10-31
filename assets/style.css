@@ -79,9 +79,9 @@ font-family: Arial, Helvetica, sans-serif;
     box-shadow: 4px 4px 10px -10px rgba(0,0,0,0.75);
   }
 
-  .rCol{
-    height:95%;
-  }
+  .rCol {
+    height: 98.5%;
+}
 
   .rColPng{
     height: 100%;
@@ -119,3 +119,19 @@ font-family: Arial, Helvetica, sans-serif;
   .tableHead{
     padding:4px!important;
   }
+
+  canvas{
+    width: 100%!important;
+    height: 100%!important;
+  }
+
+  .bottomRow {
+    height: 100%;
+}
+
+@media only screen and (max-width: 575px){
+  .rCol {
+    height: 95%;
+    margin-top: 37px;
+}
+}
