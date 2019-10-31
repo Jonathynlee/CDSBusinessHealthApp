@@ -204,8 +204,8 @@ function getAllProjects() {
 
 }
 ////////////////////////////////////////////////////////////////////
-var localToken = JSON.stringify(localStorage.token);
-if (localToken != "null"|| localToken != "undefined") {
+var localToken = localStorage.token;
+if (localToken != null && localToken != undefined) {
 
     token = localToken;
     getAllProjects();
