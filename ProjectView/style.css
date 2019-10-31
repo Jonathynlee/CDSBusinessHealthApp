@@ -54,6 +54,16 @@ border-bottom:2px solid #337AB7 !important;
 
 
 }
-.header{
-    background-color:#F7F7F7;
-}
+
+bg-light {
+    background-color: #306AA0!important;
+    box-shadow: 4px 0px 4px 0.05px rgba(0,0,0,0.75);
+  }
+  .navbar-light .navbar-brand {
+    color: white;
+    font-style: italic;
+  }
+
+  card{
+    box-shadow: 4px 4px 10px -10px rgba(0,0,0,0.75);
+  }
