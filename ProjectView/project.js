@@ -205,17 +205,17 @@ function getAllProjects() {
 }
 ////////////////////////////////////////////////////////////////////
 var localToken = JSON.stringify(localStorage.token);
-if (localToken != "null") {
+if (localToken != "null"|| localToken != "undefined") {
 
     token = localToken;
     getAllProjects();
 } else {
     getCode();
     if (!code) {
-        //authorize();
+        authorize();
     } else {
 
-        //getToken();
+        getToken();
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
