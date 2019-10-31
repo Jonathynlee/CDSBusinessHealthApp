@@ -301,31 +301,44 @@ function viewTasks(index) { //index
 ////////////////////////////////////////////////////////////////
 // LOOK FOR GLOBAL DATA
 
-globalData = JSON.stringify(localStorage.getItem(globalData));
-if (globalData != "null"){
-
+var globalData = JSON.parse(localStorage.getItem("globalData"));
+var numProjectData = 0;
+console.log(globalData);
+if (globalData != null){
+}else{
+    console.log("2");
+    
+    globalData = {"projectData":{}};
 }
 
 //VIEW PROJECTS,THEIR STATUS AND PRIORITY
 function viewProjects() {
 
     for (var i = 0; i < APIProjects.length; i++) {
-
+        numProjectData++;
         var row = $("<tr>");
         var index = $("<th scope='row'>" + APIProjects[i].ID + "</th>");
         //ADD PINS AND DATA
-        if(globalData != "null"){
-            var pinned = globalData.projectData[i].pinned;
+        if(globalData["projectData"][JSON.stringify(APIProjects[i].ID)] != undefined ){
+            var pinned = globalData["projectData"][JSON.stringify(APIProjects[i].ID)].pinned;
 
         }else{
+            
             var pinned = false;
+            globalData["projectData"][JSON.stringify(APIProjects[i].ID)] = {}
+            globalData["projectData"][JSON.stringify(APIProjects[i].ID)]["pinned"] = false;
+            globalData["projectData"][JSON.stringify(APIProjects[i].ID)]["id"] = APIProjects[i].ID;
+            globalData["projectData"][JSON.stringify(APIProjects[i].ID)]["title"] = APIProjects[i].name;
+            globalData["projectData"][JSON.stringify(APIProjects[i].ID)]["status"] = APIProjects[i].status;
+            
         }
         if (pinned){
-            var pinImage = "../assets/images/pin.png";
-        }else{
             var pinImage = "../assets/images/unpin.png";
+        }else{
+            var pinImage = "../assets/images/pin.png";
         }
-        var pinButton = $("<button class = \"pinButton\" pinned = \""+pinned+"\" style = \"background-image:url(\""+pinImage+"\");\"></button>")
+        var pinButton = $("<button class = \"pinButton\" pinned = \""+pinned+"\" project = \""+APIProjects[i].ID+"\"><img class  = \"pinImage\" src =\"" +pinImage+"\"></button>");
+        pinButton.on("click",switchPin);
         index.append(pinButton);
 
         row.append(index);
@@ -375,6 +388,34 @@ function viewProjects() {
 
 
     }
+    globalData.numProjects = numProjectData;
+    localStorage.setItem("globalData",JSON.stringify(globalData));
+}
+
+
+
+/////////////// PIN SWITCH EVENT ////////////////
+function switchPin(event){
+    console.log("switching");
+    var pinButton = event.target;
+    var pinStatus = pinButton.getAttribute("pinned");
+    var projectID = pinButton.getAttribute("project");
+    console.log(pinStatus);
+var pinImg = pinButton.querySelector("img")
+var project  = pinButton.getAttribute("project")
+console.log(project);
+
+if (pinStatus == "true"){
+    pinButton.setAttribute("pinned","false");
+    globalData["projectData"][project]["pinned"] = false;
+    var pinImage = "../assets/images/pin.png";
+}else{
+    pinButton.setAttribute("pinned","true");
+    globalData["projectData"][project]["pinned"] = true;
+    var pinImage = "../assets/images/unpin.png";
+}
+pinImg.setAttribute("src",pinImage);
+localStorage.setItem("globalData",JSON.stringify(globalData));
 }
 
 

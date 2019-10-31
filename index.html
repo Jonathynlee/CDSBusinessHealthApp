@@ -40,7 +40,7 @@
             
         <div class="row">
             
-            <div class="col-sm-9 allCol">
+            <div class="col-md-8 allCol">
                 
                 
                  <div class="container">
@@ -100,11 +100,32 @@
 
         
 
-            <div class="col-sm-3 allCol rightCol">
+            <div class="col-md-4 allCol rightCol">
                 <div class="card rCol">
                     <div class="card-body threeRows">
-                            <div class="row">
-                            
+                            <div class="row pCol">
+                            <!--Stuff Goes Here -->
+
+                            <div class= "col-md-12">
+                              <div class = "pinnedData">
+                                <h1>Pinned Projects</h1>
+                                <hr>
+                                <table class="table table-bordered" id="project">
+                                    <thead>
+                                      <tr>
+                                        
+                                        <th scope="col" class="text-center tableHead">Title</th>
+                                        <th scope="col" class="text-center tableHead">Status</th>
+                                        
+                                      </tr>
+                                    </thead>
+                                    <tbody id="pbody">
+                                      
+                                     
+                                    </tbody>
+                               </table>
+                              </div>
+                            </div>
                             </div>
                            
                     </div>
@@ -138,17 +159,66 @@
         <script src="assets/javascriptFiles/script.js"></script>
 
         <script>
-          /* THIS IS TO GRAB PINNED DATA
-        var data  = JSON.stringify(localStorage.getItem("data"));
-          if (localStorage.data == "null"){
-
-        data = {
-          "projectData":{},
-          "financeData":{}
-          
-
+         var numPinned = 0;
+         var callArr = [];
+        var data  = JSON.parse(localStorage.getItem("globalData"))["projectData"];
+        var table = $("#project");
+        //var numProject = data.numProjects;
+        if (data!=undefined){
+          for(object in data){
+            console.log(data[object])
+            if (data[object].pinned){
+              
+              
+             callArr[numPinned] = JSON.stringify(data[object]["id"]);
+             numPinned++;
+             console.log(callArr)
+            }
+          }
+          }else{
+          $(".pCol").css("display","none");
         }
-      */
+        if (callArr.length>0){
+        for(var e=0;e<callArr.length;e++){
+          var row = $("<tr>");
+            var dataBox = $("<td>");
+            var content = $("<button class='btn btn-info btn-block' onclick=toProjects()>" + data[callArr[e]].title + "</button>");
+        
+            dataBox.append(content);
+            row.append(dataBox)
+            
+            var dataBox = $("<td>");
+                if (data[callArr[e]].status == "on schedule") {
+            button = $("<button class='btn btn-success btn-block'>" + data[callArr[e]].status + "</button>");
+        }
+        else if (data[callArr[e]].status == "falling behind") {
+            button = $("<button class='btn btn-warning btn-block'>" + data[callArr[e]].status + "</button>");
+        }
+        else if (data[callArr[e]].status == "overdue") {
+            button = $("<button class='btn btn-danger btn-block'>" + data[callArr[e]].status + "</button>");
+        }
+           
+            dataBox.append(button);
+            row.append(dataBox)
+              table.append(row)
+        }
+      }else{
+        $(".pCol").css("display","none");
+      }
+//usingsjfne
+       
+
+
+
+
+function toProjects(){
+  window.location ="https://jonathynlee.github.io/CDSBusinessHealthApp/ProjectView/";
+
+}
+
+        
+         
+      
         
         </script>
 </body>
