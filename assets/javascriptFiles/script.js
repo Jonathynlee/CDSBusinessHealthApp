@@ -211,8 +211,13 @@ var gauge1 = loadLiquidFillGauge("fillgauge1", 50);
 
 
   //BOTTOMGRAPH     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+var currentLables=[];
+var chartData=[];
+for (var i=11;i>-1;i--){
+  currentLables[i] = moment().subtract(i,'days').format("MMM Do");
+  chartData[i]= (Math.random()*40)+20
+  console.log(currentLables);
+}
   const mainChart = document.getElementById("lineChart");
 
   console.log(mainChart);
@@ -220,10 +225,10 @@ var gauge1 = loadLiquidFillGauge("fillgauge1", 50);
   let lineChart = new Chart(mainChart, {
     type: 'line',
     data: {
-      labels:["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      labels:currentLables,
       datasets: [
         {
-          Label: "CDS Data Set",
+          label: "CAD DOWNLOADS",
           fill: true,
           lineTension: 0.1,
           backgroundColor: "rgba(75,192,192,0.3)",
@@ -242,7 +247,7 @@ var gauge1 = loadLiquidFillGauge("fillgauge1", 50);
           pointRadius: 1,
           pointHitRadius: 10,
           //ADD DATA HERE
-          data: [20, 25, 45, 35, 40, 55, 43, 52, 38, 50, 48, 57]
+          data:chartData
         }
       ]
     }

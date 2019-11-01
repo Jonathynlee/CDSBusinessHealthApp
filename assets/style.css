@@ -61,10 +61,11 @@ body {
     align-content: center;
   }
 
-  .bullet-png{
+  .bullet-png {
     width: 100%;
-  }
-
+    height: 70%;
+    margin-top: 5%;
+}
   *{
 font-family: Arial, Helvetica, sans-serif;
   }
@@ -135,4 +136,34 @@ font-family: Arial, Helvetica, sans-serif;
     height: 95%;
     margin-top: 37px;
 }
+}
+h5{
+  font-size:15px;
+}
+.row1, .row2, .row3{
+
+}
+.left-col1, .left-col2, .left-col3, .left-col4, .left-col5, .left-col6{
+border:2px solid rgb(231, 231, 231);
+text-align:center;
+}
+.right-col1, .right-col2, .right-col3, .right-col4, .right-col5, .right-col6{
+  border:2px solid rgb(231, 231, 231);
+  text-align:center;
+
+  }
+
+.right-col2, .right-col3{
+
+    color:white;
+    background-color: rgb(223, 123, 123);
+    }
+
+    .right-col4, .right-col5,.right-col6{
+
+      color:white;
+      background-color: rgb(97, 211, 97)
+      }
+.card-body{
+  line-height:10px;
 }
