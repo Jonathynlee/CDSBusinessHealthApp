@@ -10,6 +10,13 @@ var realmid;
 var authCode;
 var authToken;
 authToken = localStorage.financeToken;
+
+
+jQuery.ajaxPrefilter(function (options) {
+    if (options.crossDomain && jQuery.support.cors) {
+        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    }
+});
 ////////// Get Query Parameter Upon Return ///////////////
 function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
