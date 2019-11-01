@@ -15,6 +15,9 @@
 
 <body>
 
+        
+
+
     <div class="row headerRow header">
         
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,7 +47,8 @@
     <div class="row contentRow contentRow1">
         <div class="col-md-4 bootCol">
             <div class = "contentCol contentCol1">
-                    <h1>Invoices</h1>
+                    <canvas id="barChart" height="#" width="#" style="border: solid"> </canvas>
+                    
             </div>
             
 
@@ -52,13 +56,16 @@
         <div class="col-md-4 bootCol ">
                
             <div class = "contentCol contentCol2">
-                    <h1>Expenses</h1>
+                    <canvas id="doughnutChart" height="#" width="#" style="border: solid"> </canvas>
                 </div>
 
         </div>
         <div class="col-md-4 bootCol ">
                 <div class = "contentCol contentCol3">
-                        <h1>Bank Accounts</h1>
+                        <h1 class="bankHead">Bank Accounts</h1>
+                        <div class="bank check"><div>Checking:</div></div>
+                        <div class="bank save"><div>Savings:</div></div>
+
                     </div>
                     
 
@@ -67,14 +74,14 @@
     <div class="row contentRow contentRow2">
         <div class="col-md-4 bootCol ">
             <div class = "contentCol contentCol4">
-                    <h1>Profits and Loss</h1>
+                    <canvas id="profitAndLossChart" height="200px" width="400" style="border: solid"> </canvas>
             </div>
 
         </div>
         <div class="col-md-4 bootCol ">
             <!-- Diagram 5-->
             <div class = "contentCol contentCol5">
-                    <h1>Sales</h1>
+                    <canvas id="salesChart" height="200px" width="400" style="border: solid"> </canvas>
                 </div>
 
         </div>
@@ -92,8 +99,8 @@
     </div>    
     
     </div>
-
-    <script src="financeScript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+   
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -103,6 +110,218 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+        
+    <script>
+    
+//~Directions to determine Data input~
+//
+
+//INVOICE BAR CHART
+
+
+var barChart = document.getElementById("barChart");
+
+console.log(barChart);
+
+
+
+
+var myBarChart = new Chart(barChart, {
+    type: 'horizontalBar',
+    data: {
+        labels:["Project 1", "Project 2", "Project 3"],
+        datasets: [
+            {
+              label: "",
+              fill: true,
+              lineTension: 0.1,
+              backgroundColor: ["gray, yellow", "blue", "red"],
+              borderColor: "rgba(75,192,192,0.3)",
+              borderCapStyle: 'butt',
+              borderDash: [],
+              borderDashOffset: 0.0,
+              borderJoinStyle: 'miter',
+              pontBorderColor: "rgba(75,192,192,1)",
+              pointBackgroundColor: "#fff",
+              pointBorderWidth: 1,
+              pointHoverRadius: 5,
+              pointHoverBackgroundColor: "rgba(75,192,192,1)",
+              pointHoverBorderColor: "rgba(220,220,220,1)",
+              pointHoverBorderWidth: 2,
+              pointRadius: 1,
+              pointHitRadius: 10,
+              //ADD DATA HERE//////////////////////////////////////////////////////////
+              data: [20, 25, 45]
+            }
+          ]
+    }
+});
+
+
+//EXPENSES DOUGHNUT CHART
+
+var doughnutChart = document.getElementById("doughnutChart");
+
+console.log(doughnutChart);
+
+var myDoughnutChart = new Chart(doughnutChart, {
+    type: 'doughnut',
+    data: {
+        labels:["Project 1", "Project 2", "Project 3"],
+        datasets: [
+            {
+              label: "Project 1",
+              fill: true,
+              lineTension: 0.1,
+              //Change arc background Color
+              backgroundColor: ["yellow", "blue", "red"],
+              borderColor: "rgba(75,192,192,0.3)",
+              borderCapStyle: 'butt',
+              borderDash: [],
+              borderDashOffset: 0.0,
+              borderJoinStyle: 'miter',
+              pontBorderColor: "rgba(75,192,192,1)",
+              pointBackgroundColor: "#fff",
+              pointBorderWidth: 1,
+              pointHoverRadius: 5,
+              pointHoverBackgroundColor: "rgba(75,192,192,1)",
+              pointHoverBorderColor: "rgba(220,220,220,1)",
+              pointHoverBorderWidth: 2,
+              pointRadius: 1,
+              pointHitRadius: 10,
+              //ADD DATA HERE//////////////////////////////////////////////////////////
+              data: [20, 25, 45]
+            },
+            
+          ]
+    }
+});
+
+
+//PROFIT AND LOSS CHART
+
+var pnlChart = document.getElementById("profitAndLossChart");
+
+console.log(pnlChart);
+
+var profAndLosChart = new Chart(pnlChart, {
+  type: 'line',
+  data: {
+    labels:["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    datasets: [
+      {
+        label: "CDS Data Set",
+        fill: false,
+        lineTension: 0.01,
+        backgroundColor: "blue",
+        //LINE COLOR
+        borderColor: "blue",
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pontBorderColor: "blue",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        //ADD DATA HERE//////////////////////////////////////////////////////////
+        data: [20, 25, 45, 35, 40, 55, 43, 52, 38, 50, 48, 57]
+      },
+      {
+        label: "CDS Data Set Two",
+        fill: false,
+        lineTension: 0.01,
+        backgroundColor: "red",
+        //LINE COLOR
+        borderColor: "red",
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pontBorderColor: "red",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        //ADD DATA HERE//////////////////////////////////////////////////////////
+        data: [40, 65, 35, 25, 50, 75, 33, 42, 78, 40, 58, 77]
+      }
+      
+    ]
+  }
+});
+
+
+//SALES CHART
+
+
+var salesChart = document.getElementById("salesChart");
+
+console.log(salesChart);
+
+var newSalesChart = new Chart(salesChart, {
+  type: 'line',
+  data: {
+    labels:["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    datasets: [
+      {
+        label: "CDS Data Set",
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: "rgba(75,192,192,0.3)",
+        //LINE COLOR
+        borderColor: "blue",
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pontBorderColor: "rgba(75,192,192,1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        //ADD DATA HERE//////////////////////////////////////////////////////////
+        data: [30, 45, 40, 35, 45, 55, 53, 42, 58, 40, 38, 47]
+      }
+      
+    ]
+  }
+});
+
+
+//BANK ACCOUNTS
+
+var checkingDiv = $("<div>");
+var savingsDiv = $("<div>");
+
+var checkEl = $(".check");
+var savingEl = $(".save");
+
+//ADD DATA HERE//////////////////////////////////////////////////////////
+checkingDiv.text("");
+savingsDiv.text("");
+
+checkEl.append(checkingDiv);
+savingEl.append(savingsDiv);
+
+
+    
+    
+    </script>
 
 </body>
 
