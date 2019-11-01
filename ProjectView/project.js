@@ -186,6 +186,7 @@ function getAllProjects() {
                 projectAPI = new Object();
                 projectAPI.ID = response[i].id;
                 projectAPI.name = response[i].name;
+                projectAPI.startDate=response[i].created_at;
                 projectAPI.url = response[i].dock[2].url;
                 projectAPI.status = statusAPI[randomNumberGenerator()];
                 projectAPI.priority = priority[randomNumberGenerator()];
@@ -269,7 +270,7 @@ $('#myModal2').on('show', function () {
         'max-height': '100%'
     });
 });
-//////////When Project Button is Clicked the asignees and number of tasks that are open will be listed.////////
+//////////////////
 function viewTasks(index) { //index
 
     var project = usefulArray[index];
@@ -330,6 +331,7 @@ function viewProjects() {
             globalData["projectData"][JSON.stringify(APIProjects[i].ID)]["id"] = APIProjects[i].ID;
             globalData["projectData"][JSON.stringify(APIProjects[i].ID)]["title"] = APIProjects[i].name;
             globalData["projectData"][JSON.stringify(APIProjects[i].ID)]["status"] = APIProjects[i].status;
+            globalData["projectData"][JSON.stringify(APIProjects[i].ID)]["startDate"] = APIProjects[i].startDate;
             
         }
         if (pinned){
