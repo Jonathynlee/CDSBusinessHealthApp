@@ -79,6 +79,13 @@ border-bottom:2px solid #337AB7 !important;
     margin-top:5px;
     
   }
+  .pinButton:active{
+border:none;
+  }
+  .pinButton:focus{
+    outline:none;
+      }
+      
   
  .pinImage{
    width:100%;
