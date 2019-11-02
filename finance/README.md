@@ -17,7 +17,7 @@ In each tile, a different data set is represented. Please see (additional inform
 As a user, when you initially log onto the site, it should initially propt you to authorize your profile by logging in through quickbooks
 (shown below)
 
-![Quickbooks Authorization] (../assets/images/quickbooks_auth.jpg)
+![Quickbooks Authorization](../assets/images/quickbooks_auth.jpg)
 
 Once you are logged it, CDS Business Health will have access to all data.
 
