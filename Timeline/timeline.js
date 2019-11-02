@@ -9,15 +9,15 @@ function drawChart() {
   dataTable.addColumn({ type: 'date', id: 'Start' });
   dataTable.addColumn({ type: 'date', id: 'End' });
   dataTable.addRows([
-    [ 'McNeilus Truck & Manufacturing', new Date(2017, 2, 15), new Date(2017, 8, 15) ],
-    [ 'Test: Catalog3',                 new Date(2017, 6, 23),  new Date(2017, 12, 23) ],
-    [ 'Test: 3D Model Viewer',          new Date(2017, 9, 11),  new Date(2018, 3, 11) ],
-    [ 'Focal Point',                    new Date(2018, 2, 15), new Date(2018, 8, 15) ],
-    [ 'Data Team',                      new Date(2018, 6, 23), new Date(2018, 12, 23) ],
-    [ 'Quotes',                         new Date(2018, 9, 11),  new Date(2019, 3, 11) ],
-    [ 'RhinoAg',                        new Date(2019, 2, 15),  new Date(2019, 8, 15) ],
-    [ 'Rexnord Maintenance',            new Date(2019, 6, 23), new Date(2019, 12, 23) ],
-    [ 'IGS',                            new Date(2019, 9, 11), new Date(2020, 3, 11) ]]);
+    [ 'McNeilus Truck & Manufacturing', new Date(2017, 1, 15), new Date(2017, 3, 9) ],
+    [ 'Test: Catalog3',                 new Date(2017, 1, 7),  new Date(2017, 5, 23) ],
+    [ 'Test: 3D Model Viewer',          new Date(2017, 4, 11),  new Date(2017, 7, 29) ],
+    [ 'Focal Point',                    new Date(2017, 3, 4), new Date(2017, 8, 21) ],
+    [ 'Data Team',                      new Date(2017, 5, 23), new Date(2017, 9, 17) ],
+    [ 'Quotes',                         new Date(2017, 2, 12),  new Date(2017, 9, 27) ],
+    [ 'RhinoAg',                        new Date(2017, 6, 1),  new Date(2017, 8, 23) ],
+    [ 'Rexnord Maintenance',            new Date(2017, 4, 26), new Date(2017, 8, 9) ],
+    [ 'IGS',                            new Date(2017, 8, 24), new Date(2017, 9, 18) ]]);
 
   chart.draw(dataTable);
 }
