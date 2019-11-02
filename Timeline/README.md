@@ -12,10 +12,10 @@ This program part displays the current project timeline. The y-axis displays the
 
 ## ScreenShots: ##
 
-  ![Timeline](../assets/layouts/Timeline.png)
+  ![Timeline](../assets/layouts/Timeline.PNG)
 --
 
-  ![TimelineCursor](../assets/layouts/TimelineCursor.png)
+  ![TimelineCursor](../assets/layouts/TimelineCursor.PNG)
 
 ## Functionality ##
 
