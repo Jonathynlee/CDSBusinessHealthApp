@@ -1,17 +1,21 @@
-#CDS BUSINESS HEALTH APP
+# CDS BUSINESS HEALTH APP
 
-## TABEL OF CONTENTS ##
+##Information
+This application was develop by a team in the UCLA Extension Full Stack Web Development program. It was build for a company, Catalog Data Solutions to help them organize data for an exective user to understand the state of the entire business. 
+
+## TABEL OF CONTENTS
 1) Main Dash Board
 2) Project Page
-3)Calender
+3) Calender
 4) Finance Page
 
-
-## 1) CDSBusinessHealthApp - Main Dashboard ##
-
+---
 ---
 
-## About: ##
+# 1) CDSBusinessHealthApp - Main Dashboard 
+
+
+## About: 
 This page represents the main dashboard, it includes 5 sections: 
 
     Overall Health Grade (Location: top row, left column): This section represents the overall health of all the projects. The data is averaged from the health of each given project; each projects health in particular is represented in the next section; Project Health Levels.
@@ -29,23 +33,18 @@ This page represents the main dashboard, it includes 5 sections:
 ![Main Dashboard Image](assets/layouts/MainDashboard.png)
 
 
-## Functionality: ##
+## Functionality:
 The purpose of this page is to portray general information/progress of the given projects that are going on in the the company. It is meant to help facilitate the process of managing projects, to help give the user a good general idea of information regarding each given section.
 
+---
+---
 
-
+# 2) CDSBusinessHealthApp - Projects
 
 
 
 ## CDSBusinessHealth Application ##
 
-## ABOUT: ##
-
-## INSTALLATION: ##
-
-## APPLICATION VIEWS ##
-
-## Project View ##
 
 This program part lists projects with options to access to the subtasks and people working on the project. It gives information about the status of the project which could be (overdue, onschedule or falling behind). it also gives information about the priority of the project(High,Medium,Low). All critical tasks are color coded. Red designates very critical, yellow is about to be critical and green is normal. This view will help project managers to see critical tasks which might be overdue or high priority. He can pin particular projects to track on the dashboard. Also he can track the todoSets(tasks) to see their completion status, completion rates and how many todoLists(subtasks) exist under that todoSet(task). Also he can reach member(Employee) information per project.
 
@@ -124,18 +123,12 @@ The web sites that We found useful while implementing the application are listed
 
   
   
-  
-  /////////////////////////////////////////
-  
-  ## CDSBusinessHealth Application ##
+  --
+  --
 
-## ABOUT: ##
+# 3) CDSBusinessHealthApp - Projects Timeline
 
-## INSTALLATION: ##
 
-## APPLICATION VIEWS ##
-
-## Timeline ##
 
 This program part displays the current project timeline. The y-axis displays the current projects by name while the x-axis shows the time interval each project took to complete. Currently the data displayed is dummy data that will be filled out at a later date when the application becomes secure to be able to display the true data off of Basecamp. 
 
@@ -165,13 +158,16 @@ The timeline bar graph was simplified using the Google Charts library instead of
   - Be able to access the actual data off of the Basecamp API
   - Allow the user to dynamically add projects along with their start and end dates and be able to display them in timeline.
   
-  //////////////////////////////////////////
+---
+---
+
+
+# 4) CDSBusinessHealthApp - Finance
   
   URL: https://jonathynlee.github.io/CDSBusinessHealthApp/finance/finance.html
 
 
-
-////////////// Descrition ///////////////////////
+## Descrition 
 In this section of the website, you will find data representing the financial state of the shown business (CDS). There are 6 tiles, each
 of which will display unique data directly from the users quick books account. 
 
@@ -181,7 +177,7 @@ of which will display unique data directly from the users quick books account.
 In each tile, a different data set is represented. Please see (additional information on this topic)
 
 
-/////////////  instuction /////////
+## Instuction 
 
 As a user, when you initially log onto the site, it should initially propt you to authorize your profile by logging in through quickbooks
 (shown below)
@@ -193,7 +189,7 @@ Once you are logged it, CDS Business Health will have access to all data.
 
 
 
-///////////// Additional Information ////////////////
+## Additional Information 
 
 (Topic referenced) - There is a lack of connection to the quickbooks API due to the fact the quickbooks api only allow Oauth2 ajax requests
 from server side applications. Until we know Node.js, the functionality will be cut. 
