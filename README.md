@@ -1,7 +1,9 @@
 # CDS BUSINESS HEALTH APP
 
 ## Information
-This application was develop by a team in the UCLA Extension Full Stack Web Development program. It was build for a company, Catalog Data Solutions to help them organize data for an exective user to understand the state of the entire business. 
+This application was develop by a team in the UCLA Extension Full Stack Web Development program. It was build for a company, Catalog Data Solutions to help them organize data for an exective user to understand the state of the entire business.
+
+Link to main dashbord: https://jonathynlee.github.io/CDSBusinessHealthApp/
 
 ## TABEL OF CONTENTS
 1) Main Dash Board
